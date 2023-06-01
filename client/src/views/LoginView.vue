@@ -19,7 +19,7 @@
           <h3>Sign In</h3>
           <router-link to="/register">Create an account</router-link> 
         </div>
-        <form action="https://fa-capstone.onrender.com/user/login" method="post">
+        <form action="/user/login" method="post">
     <div class="mb-3 mbb">
       <label for="exampleInputEmail1" class="form-label">Email</label>
       <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
