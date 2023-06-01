@@ -1,7 +1,7 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
   transpileDependencies: true,
-  // devServer:{
-  //   proxy:"https://fa-capstone.onrender.com",
-  // }
+  devServer:{
+    proxy:"https://fa-capstone.onrender.com",
+  }
 })
