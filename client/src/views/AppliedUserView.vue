@@ -38,7 +38,7 @@ export default {
        async getAppliedUsers(){
        try{
         const id = this.$route.params.id;
-            const response = await axios.get(`https://fa-capstone.onrender.com/jobs/${id}/appliedUsers`)
+            const response = await axios.get(`/jobs/${id}/appliedUsers`)
             console.log(response.data);
         this.appliedUsers = response.data;
       
