@@ -32,7 +32,7 @@ export default {
       async alljobs (){
       try{
    
-       const result = await axios.get('/jobs')
+       const result = await axios.get('https://fa-capstone.onrender.com/jobs')
          this.jobs  = result.data;
        
       }

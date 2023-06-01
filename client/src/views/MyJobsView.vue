@@ -61,7 +61,7 @@ export default {
           try{
             
             const id = this.$route.params.id;
-            const response = await axios.get(`/user/${id}/myjobs`)
+            const response = await axios.get(`https://fa-capstone.onrender.com/user/${id}/myjobs`)
             this.postJobs = response.data.jobs;
           }
           catch(err){
