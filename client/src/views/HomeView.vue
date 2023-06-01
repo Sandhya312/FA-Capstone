@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import HeroCom from '../components/HeroCom.vue';
 import BannerCom from '../components/BannerCom.vue';
 import AllJobsCom from '@/components/AllJobsCom.vue';
@@ -25,24 +24,10 @@ export default {
   },
   data(){
     return{
-      jobs:[],
+     
     }
   },
-  methods:{
-      async alljobs (){
-      try{
-       const result = await axios.get('/jobs')
-         this.jobs  = result.data;
-       
-      }
-      catch(err){
-        console.log(err);
-      }
-    }
-  },
-  mounted(){
-    this.alljobs();
-  }
+
 }
 </script>
 

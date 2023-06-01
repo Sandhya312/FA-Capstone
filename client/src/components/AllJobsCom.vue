@@ -58,10 +58,8 @@ export default {
   methods:{
       async alljobs (){
       try{
-       
        const result = await axios.get('https://fa-capstone.onrender.com/jobs')
          this.jobs  = result.data;
-       
       }
       catch(err){
         console.log(err);
