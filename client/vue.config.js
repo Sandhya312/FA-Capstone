@@ -1,17 +1,11 @@
-const { defineConfig } = require('@vue/cli-service')
-
-module.exports = defineConfig({
-  transpileDependencies: true,
+module.exports = {
+  publicPath: '/',
   devServer: {
     proxy: {
-      '/api': {
-        target: 'https://fa-capstone.onrender.com',
-        changeOrigin: true,
-        secure: false,
-        pathRewrite: {
-          '^/api': ''
-        }
+      '/': {
+        target: 'https://fa-capstone.onrender.com', // Replace with your backend server URL
+        changeOrigin: true
       }
     }
   }
-})
+};
