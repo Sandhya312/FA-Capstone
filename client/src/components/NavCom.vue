@@ -46,7 +46,7 @@ export default {
   },
   methods:{
     logout() {
-      axios.get('/user/logout')
+      axios.get('https://fa-capstone.onrender.com/user/logout')
         .then(() => {
           this.isUser='';
          localStorage.clear();
