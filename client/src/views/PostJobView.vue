@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="post-jobs">
 
-<h1>Job post here</h1>
+<h1>Please post a job for your company</h1>
 <form method="post" action="/jobs/postjob">
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Title</label>
@@ -59,3 +59,9 @@
 
     </div>
 </template>
+
+<style scoped>
+ .post-jobs{
+  padding: 20px 100px;
+ }
+</style>

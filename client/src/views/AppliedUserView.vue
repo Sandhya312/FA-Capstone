@@ -8,12 +8,15 @@
     <div v-for="user in appliedUsers" :key="user._id" class="card" style="width: 18rem;">
         <div class="card-body">
             <h6>user name:{{ user.name }}</h6>
+            <h6>user Tagline:{{ user.my_taglines}}</h6>
             <h6>user email:{{ user.email }}</h6>
             <h6>user phone no:{{ user.phone_no }}</h6>
-          <form :action="`/user/${user._id}`" method="get">
-            <!-- Form fields go here -->
+            <h6 v-for="skill in user.mySkills" :key="skill">user Skills:{{skill}}</h6>
+            <h6><a :href="user.resume" target="_blank">{{ user.name }}.Resume</a></h6>
+          <!-- <form :action="`/user/${user._id}`" method="get">
+           
             <button class="btn btn-primary" type="submit">View user</button>
-          </form>
+          </form> -->
        
           
      </div>
@@ -36,7 +39,7 @@ export default {
        try{
         const id = this.$route.params.id;
             const response = await axios.get(`/jobs/${id}/appliedUsers`)
-      
+            console.log(response.data);
         this.appliedUsers = response.data;
       
        }
@@ -50,3 +53,15 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.card{
+    background: transparent;
+    margin: 20px;
+    height: 26rem;
+    width: 30rem !important
+}
+h6{
+    margin-bottom: 20px !important;
+}
+</style>

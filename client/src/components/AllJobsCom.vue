@@ -58,10 +58,10 @@ export default {
   methods:{
       async alljobs (){
       try{
-        console.log("all jobs");
+       
        const result = await axios.get('/jobs')
          this.jobs  = result.data;
-         console.log(this.jobs);
+       
       }
       catch(err){
         console.log(err);

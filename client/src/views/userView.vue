@@ -19,7 +19,14 @@
                 <a href="#profile" class="active">Profile</a>
                 <hr align="center">
             </div>
-         
+            <div v-if="!user.is_emp" class="url">
+                <router-link :to="`/user/${user._id}/applied`">Applied Jobs</router-link> 
+                <hr align="center">
+            </div>
+            <div v-else class="url">
+                <router-link :to="`/user/${user._id}/myjobs`">Posted Jobs</router-link> 
+                <hr align="center">
+            </div>
         </div>
     </div>
     <!-- End -->
@@ -47,27 +54,21 @@
                             <td>:</td>
                             <td>{{ user.address }}</td>
                         </tr>
-                        
                         <tr>
                             <td>Skills</td>
                             <td>:</td>
                             <td v-for="skill in user.mySkills" :key="skill"
-                            ><a href="/">{{ skill }}</a></td>
+                            ><p>{{ skill }}</p></td>
                         </tr>
                         <tr>
-                            <td>AppliedJobs</td>
+                            <td>Resume</td>
                             <td>:</td>
-                            <td
-                            ><div  v-for="job in user.appliedJobs" :key="job">
-                                <a :href="`/jobs/${job}`">{{ job }}</a> 
-                            </div></td>
+                            <td><a :href="user.resume" target="_blank">{{ user.name }}.Resume</a></td>
                         </tr>
+                       
                     </tbody>
                 </table>
-                <!-- <form  :action="`/user/${user._id}/applied`" method="get">
-        
-        <button class="btn btn-primary" type="submit">Applied jobs</button>
-      </form> -->
+               
             </div>
         </div>
 
@@ -95,22 +96,11 @@
                             <td>:</td>
                             <td>{{ user.address }}</td>
                         </tr>
+                       
                         
-                        <tr>
-                            <td>Posted Jobs</td>
-                            <td>:</td>
-                            <td
-                            ><div  v-for="job in user.postingJobs" :key="job">
-                                <a :href="`/jobs/${job}`">{{ job }}</a> 
-                            </div></td>
-                        </tr>
+                       
                     </tbody>
                 </table>
-                <!-- <form  :action="`/user/${user._id}/myjobs`" method="get">
-        
-        <button class="btn btn-primary" type="submit">Post jobs</button>
-      </form>
-       -->
         
       <router-link to="/postjob">Post Job</router-link> 
      

@@ -9,7 +9,7 @@ const sendAppliedNotification = asyncHandler(async(student,job)=>{
          service:'gmail',
          auth:{
              user:'jefemuneca@gmail.com',
-             pass:'shckgzsxbauzizxz',
+             pass:process.env.EMAIL_PASS,
          }
      });
  
@@ -44,7 +44,6 @@ const sendAppliedNotification = asyncHandler(async(student,job)=>{
 // all job listing
 const allJobs = asyncHandler(async(req,res)=>{
     const jobs = await Job.find({});
-    // res.status(202).render("alljobs",{jobs})
     res.status(202).send(jobs)
 
 })
@@ -58,7 +57,6 @@ const postJob = asyncHandler(async(req,res)=>{
         res.status(200).send(user);
 
     }else{
-        // res.status(200).render("user",{user});
         res.status(200).send(user);
 
     }
@@ -69,7 +67,6 @@ const postJob = asyncHandler(async(req,res)=>{
 // each job page
 const jobPage = asyncHandler(async(req,res)=>{
      const job = await Job.findById(req.params.id);
-    //  res.status(202).render('jobPage',{job:job})
     res.status(202).send(job);
 
 })
@@ -99,11 +96,9 @@ const createPost = asyncHandler(async(req,res)=>{
             user.postingJobs.push(newPost._id);
         }
         await user.save();
-        // res.status(202).render('jobPage',{job:newPost});
         res.status(202).redirect('/');
 
     }else{
-        // res.status(500).json({ error: 'Failed to create job post.' });
         res.status(500).send({ error: 'Failed to create job post.' });
 
     }
@@ -152,10 +147,6 @@ const jobAppliedUsers = asyncHandler(async(req,res)=>{
         const user = await User.findById(userId);
         users.push(user);
     }
-
-    console.log(users);
-
-    // res.render('appliedUsers',{appliedUsers:users})
     res.send(users);
 
 
