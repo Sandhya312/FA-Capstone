@@ -19,7 +19,7 @@
           <h3>Sign In</h3>
           <router-link to="/register">Create an account</router-link> 
         </div>
-        <form  @submit="login()">
+        <form  @submit.prevent="login()">
     <div class="mb-3 mbb">
       <label for="exampleInputEmail1" class="form-label">Email</label>
       <input type="email" name="email" v-model="user.email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
