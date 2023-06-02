@@ -164,7 +164,7 @@ const UserLogin = asyncHandler(async (req, res) => {
 
     }else{
         req.session.user_id = user.id;
-        console.log("login successfully",user.id);
+        console.log("login successfully",req.session.user_id);
         res.send(user.id);
         // res.redirect('/user/'+user.id);
         console.log("login failed");
