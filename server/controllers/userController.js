@@ -61,8 +61,14 @@ const logout = asyncHandler(async(req,res)=>{
 const userProfile = asyncHandler(async (req, res) => {
 
     const user = await User.findById(req.params.id);
-    console.log("user backend",user);
-    res.status(200).send(user);
+    if(user){
+        console.log("user backend",user);
+        res.status(200).send(user);
+
+    }else{
+        console.log("user not found");
+        
+    }
 });
 
 // user profile edit load

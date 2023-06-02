@@ -60,7 +60,7 @@ export default {
           password: this.user.password,
         });
         console.log("1:", response.data);
-        localStorage.setItem('userId',response.data);
+        // localStorage.setItem('userId',response.data);
         this.$router.push({ path:`/user/${response.data}`});
       } catch (err) {
         console.log(err);
@@ -70,7 +70,7 @@ export default {
   },
 }
 </script>
-
+<!-- https://fa-capstone-client.netlify.app/user/646d4c8dd2240f90bf8e619c -->
 <style scoped>
 .login-page{
   display: flex;

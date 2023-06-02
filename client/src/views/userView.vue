@@ -140,13 +140,14 @@ export default {
          async getUser(){
            try{
             const id = this.$route.params.id;
+            console.log("user frontend",id);
             const response = await axios.get(`https://fa-capstone.onrender.com/user/${id}`);
             console.log("user view",response);
             if(response.data==''){
                 this.$router.push({path:'/login'});
             }else{
                 this.user = response.data;
-            // localStorage.setItem('userId',id);
+            localStorage.setItem('userId',id);
            
             this.$emit('login',id);
             }
