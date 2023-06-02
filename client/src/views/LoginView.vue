@@ -61,7 +61,7 @@ export default {
               email:this.user.email,
               password:this.user.password
             });
-            this.$router.push('/');
+            // this.$router.push('/');
             console.log(response);
 
          }
