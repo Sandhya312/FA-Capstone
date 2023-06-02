@@ -57,7 +57,7 @@ export default {
     methods:{
      async  login(){
          try{
-            const response = await axios.post('/user/login',{
+            const response = await axios.post('https://fa-capstone.onrender.com/user/login',{
               email:this.user.email,
               password:this.user.password
             });
