@@ -154,8 +154,9 @@ const UserLogin = asyncHandler(async (req, res) => {
 
     }else{
         req.session.user_id = user.id;
-        console.log("login successfully");
+        console.log("login successfully",user.id);
         res.redirect('/user/'+user.id);
+        console.log("login failed");
     }
         // const accessToken = jwt.sign({
         //     user:{
