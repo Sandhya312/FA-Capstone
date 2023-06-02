@@ -34,7 +34,7 @@
    
     </div>
    
-    <button type="submit"  @click="handleFormSubmit()" class="btn btn-primary">Submit</button>
+    <button type="submit"  @click.prevent="login()" class="btn btn-primary">Submit</button>
   </form>
        </div>
 
@@ -70,10 +70,7 @@ export default {
         console.log(err);
       }
     },
-    handleFormSubmit(event) {
-      event.preventDefault(); // Prevent the default form submission
-      this.login(); // Manually handle the form submission
-    },
+   
   },
 }
 </script>
