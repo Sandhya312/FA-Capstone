@@ -19,12 +19,18 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
-app.use(session({
+app.enable ('trust proxy',true);
+app.use (cookieParser ());
+app.use (session ({
     proxy: true,
     secret:process.env.SESSION_SECRET,
     resave: true,
-    saveUninitialized: true
-  }));
+    saveUninitialized: true,
+    cookie: { maxAge: twoDay,secure:false },
+   
+}));
+
+
 app.use('/user',require('./routes/userRoutes'));
 app.use('/jobs',require('./routes/jobsRoutes'));
 
