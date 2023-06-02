@@ -19,7 +19,7 @@
           <h3>Sign In</h3>
           <router-link to="/register">Create an account</router-link> 
         </div>
-        <form @submit="login()">
+        <form @submit.prevent="login()">
     <div class="mb-3 mbb">
       <label for="exampleInputEmail1" class="form-label">Email</label>
       <input type="email" name="email" v-model="user.email" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -60,7 +60,7 @@ export default {
           password: this.user.password,
         });
         console.log("1:", response.data);
-        localStorage.setItem('userId',response.data);
+        // localStorage.setItem('userId',response.data);
         this.$router.push({ path:`/user/${response.data}`});
       } catch (err) {
         console.log(err);
