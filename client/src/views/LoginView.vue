@@ -61,7 +61,7 @@ export default {
         });
         console.log("1:", response.data);
         localStorage.setItem('userId',response.data);
-        this.$router.push({ path:`/user/${response.data}` });
+        this.$router.push(`/user/${response.data}`);
       } catch (err) {
         console.log(err);
       }
