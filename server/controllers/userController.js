@@ -158,15 +158,6 @@ const UserLogin = asyncHandler(async (req, res) => {
         res.redirect('/user/'+user.id);
         console.log("login failed");
     }
-        // const accessToken = jwt.sign({
-        //     user:{
-        //         email:user.email,
-        //         id:user.id,
-        //     }
-        // },process.env.ACCESS_TOKEN_SECRET,
-        // {expiresIn:"10m"}
-        // )
-        
     } else {
         res.status(400).send({message:"Email or password is incorrect"});
 

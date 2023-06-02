@@ -61,7 +61,7 @@ export default {
           email: this.user.email,
           password: this.user.password,
         });
-        console.log("1:", response);
+        console.log("1:", response.data);
         if (response.data) {
           console.log(response);
           // this.$router.push({ path: '/' });
