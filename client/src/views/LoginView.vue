@@ -19,7 +19,7 @@
           <h3>Sign In</h3>
           <router-link to="/register">Create an account</router-link> 
         </div>
-        <form action="/user/login" @submit.prevent="login()" method="post">
+        <form  @submit.prevent="login()" method="post">
     <div class="mb-3 mbb">
       <label for="exampleInputEmail1" class="form-label">Email</label>
       <input type="email" name="email" v-model="user.email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -43,6 +43,7 @@
 </template>
 
 <script>
+import axios from axios;
 export default {
     name:"LoginView",
     data(){
@@ -54,8 +55,18 @@ export default {
       }
     },
     methods:{
-      login(){
-          console.log(this.user);
+     async  login(){
+         try{
+            const response = await axios.post('/user/login',{
+              email:this.user.email,
+              password:this.user.password
+            });
+            console.log(response);
+
+         }
+         catch(err){
+          console.log(err);
+         } 
       }
     }
 }
