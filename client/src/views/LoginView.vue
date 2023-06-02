@@ -19,7 +19,7 @@
           <h3>Sign In</h3>
           <router-link to="/register">Create an account</router-link> 
         </div>
-        <form  @submit="login()">
+        <form  @submit="handleFormSubmit()">
     <div class="mb-3 mbb">
       <label for="exampleInputEmail1" class="form-label">Email</label>
       <input type="email" name="email" v-model="user.email" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -54,25 +54,27 @@ export default {
          }
       }
     },
-    methods:{
-     async  login(){
-         try{
-            const response = await axios.post('https://fa-capstone.onrender.com/user/login',{
-              email:this.user.email,
-              password:this.user.password
-            });
-            console.log("1:",response);
-            if(response.data){
-              console.log(response);
-              this.$router.push({path:'/'});
-            }
-
-         }
-         catch(err){
-          console.log(err);
-         } 
+ methods: {
+    async login() {
+      try {
+        const response = await axios.post('https://fa-capstone.onrender.com/user/login', {
+          email: this.user.email,
+          password: this.user.password,
+        });
+        console.log("1:", response);
+        if (response.data) {
+          console.log(response);
+          this.$router.push({ path: '/' });
+        }
+      } catch (err) {
+        console.log(err);
       }
-    }
+    },
+    handleFormSubmit(event) {
+      event.preventDefault(); // Prevent the default form submission
+      this.login(); // Manually handle the form submission
+    },
+  },
 }
 </script>
 
