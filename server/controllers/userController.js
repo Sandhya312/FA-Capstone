@@ -144,6 +144,7 @@ const verifyMail = asyncHandler(async(req,res)=>{
 // user login post
 const UserLogin = asyncHandler(async (req, res) => {
     const {email,password} = req.body;
+    console.log(email,password);
     if(!email || !password){
         res.status(400).send({message:"All field are mandatory"});
     }

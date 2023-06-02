@@ -22,12 +22,12 @@
         <form  @submit.prevent="login()">
     <div class="mb-3 mbb">
       <label for="exampleInputEmail1" class="form-label">Email</label>
-      <input type="email" name="email" v-model="user.email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="email" name="email" v-model="user.email" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     </div>
 
     <div class="mb-3 mbb">
       <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" v-model="user.password" name="password" class="form-control" id="exampleInputPassword1">
+      <input type="password" v-model="user.password" required name="password" class="form-control" id="exampleInputPassword1">
     </div>
     <div class="mb-3 ">
       <label for="exampleInputEmail1" class="form-label">Forget Password?</label>
