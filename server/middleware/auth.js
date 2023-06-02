@@ -2,6 +2,7 @@
 const isLogin = async(req,res,next)=>{
  
     try{
+        console.log(req.session.user_id,"session id");
         if(req.session.user_id){
         
         }else{

@@ -70,7 +70,6 @@ export default {
   },
 }
 </script>
-<!-- https://fa-capstone-client.netlify.app/user/646d4c8dd2240f90bf8e619c -->
 <style scoped>
 .login-page{
   display: flex;
