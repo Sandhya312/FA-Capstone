@@ -20,6 +20,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(session({
+    proxy: true,
     secret:process.env.SESSION_SECRET,
     resave: true,
     saveUninitialized: true
