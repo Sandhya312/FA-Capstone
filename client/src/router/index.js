@@ -61,11 +61,7 @@ const routes = [
     name: 'myJobs',
     component: MyJobsView
   },
-  // {
-  //   path: '/user/verify',
-  //   name: 'user',
-  //   component: EmailVerifyView
-  // },
+ 
 ]
 
 const router = new VueRouter({

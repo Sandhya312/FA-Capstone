@@ -96,9 +96,6 @@
                             <td>:</td>
                             <td>{{ user.address }}</td>
                         </tr>
-                       
-                        
-                       
                     </tbody>
                 </table>
         
@@ -106,8 +103,6 @@
      
             </div>
         </div>
-
-        
     </div>
         <div v-if="!user.is_emp">
             <form  :action="`/user/${user._id}/applied`" method="get">

@@ -146,14 +146,12 @@ const UserLogin = asyncHandler(async (req, res) => {
     const {email,password} = req.body;
     if(!email || !password){
         res.status(400).send({message:"All field are mandatory"});
-
     }
     const user = await User.findOne({ email });
     if (user && (await bcrypt.compare(password,user.password))) {
     if(user.is_varified===0){
         sendVerifyMail(user.name,email,user.id);
         res.send({message:"Please verify your mail"});
-
     }else{
         req.session.user_id = user.id;
         res.redirect('/user/'+user.id);
