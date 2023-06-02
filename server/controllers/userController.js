@@ -150,9 +150,12 @@ const UserLogin = asyncHandler(async (req, res) => {
     if(user.is_varified===0){
         sendVerifyMail(user.name,email,user.id);
         res.send({message:"Please verify your mail"});
+        console.log("login not verified");
+
     }else{
         req.session.user_id = user.id;
-        res.redirect('/user/'+user.id);
+        console.log("login successfully");
+        // res.redirect('/user/'+user.id);
     }
         // const accessToken = jwt.sign({
         //     user:{
