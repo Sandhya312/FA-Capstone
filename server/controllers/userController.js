@@ -65,7 +65,7 @@ const userProfile = asyncHandler(async (req, res) => {
 
 // user profile edit load
 const editLoad = asyncHandler(async(req,res)=>{
-       const  id = req.params.id;
+       const  id = req.query.id;
        const user = await User.findById({_id:id});
        if(user){ 
             res.send(user);
