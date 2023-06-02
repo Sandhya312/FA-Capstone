@@ -145,7 +145,7 @@ export default {
                 this.$router.push({path:'/login'});
             }else{
                 this.user = response.data;
-            localStorage.setItem('userId',id);
+            // localStorage.setItem('userId',id);
            
             this.$emit('login',id);
             }
