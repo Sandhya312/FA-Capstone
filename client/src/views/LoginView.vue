@@ -34,7 +34,7 @@
    
     </div>
    
-    <button type="submit"  @click.prevent="login()" class="btn btn-primary">Submit</button>
+    <button type="submit"  @click="login()" class="btn btn-primary">Submit</button>
   </form>
        </div>
     </div>
