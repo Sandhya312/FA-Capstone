@@ -44,7 +44,7 @@
               </div>
               <div class=" frame location-frame">
                    <p class="frame-heading">Experience</p>
-                   <p class="frame-amount">{{ job.exprience }}</p>
+                   <p class="frame-amount">{{ job.experience }}</p>
               </div>
               <div class=" frame duration-frame">
                    <p class="frame-heading">Start Date</p>
