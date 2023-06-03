@@ -59,7 +59,7 @@ const logout = asyncHandler(async(req,res)=>{
 
 // each user profile
 const userProfile = asyncHandler(async (req, res) => {
-    console.log("profile backend",req,req.params,req.params.id);
+    console.log("profile backend",req.params.id);
     const user = await User.findById(req.params.id);
     if(user){
         console.log("user backend",user);
