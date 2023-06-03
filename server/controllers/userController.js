@@ -20,7 +20,7 @@ const sendVerifyMail = asyncHandler(async(name,email,user_id)=>{
         from:'jefemuneca@gmail.com',
         to:email,
         subject:'For Verification Mail',
-        html:'<p>Hii '+name+', please click here to <a href="http://localhost:5000/user/verify?id='+user_id+'">Verify</a> your mail.</p>',
+        html:'<p>Hii '+name+', please click here to <a href="https://fa-capstone.onrender.com/user/verify?id='+user_id+'">Verify</a> your mail.</p>',
 
     }
     transport.sendMail(mailOptions,function(err,info){
