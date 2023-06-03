@@ -19,14 +19,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
-app.set('trust proxy', 1) // trust first proxy
+
 app.use (session ({
     proxy: true,
     secret:process.env.SESSION_SECRET,
-    resave: false,
+    resave: true,
     saveUninitialized: true,
-     cookie: { secure: true, httpOnly: false,
-        sameSite: 'none' }
    
 }));
 
