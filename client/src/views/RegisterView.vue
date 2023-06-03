@@ -119,7 +119,6 @@ export default {
   methods:{
    async register(){
        try{
-        let user = this.user
         const response = await axios.post('https://fa-capstone.onrender.com/user/register',{
           name:this.user.name,
     email:this.user.email,
@@ -131,7 +130,8 @@ export default {
     address:this.user.address,
     resume:this.user.resume,
         })
-        console.log("register",response);
+        console.log("register",response.data);
+        this.$router.push({path:'/login'});
        }
        catch(err){
         console.log(err);

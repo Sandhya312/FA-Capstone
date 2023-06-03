@@ -136,8 +136,10 @@ const userRegister = asyncHandler(async (req, res) => {
     if(user){
         // nodemailer
         sendVerifyMail(req.body.name,req.body.email,user._id);
+        let message="Your registration has been successfully, Please verify your mail.";
         // res.status(202).render("register",{message:"Your registration has been successfully, Please verify your mail."});
-         res.redirect('/user/login')
+        //  res.redirect('/user/login')
+        res.send(message);
     }else{
         res.status(400).send({message:"Your registration is failed"});
 
