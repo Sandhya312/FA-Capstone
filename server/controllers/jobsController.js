@@ -121,9 +121,9 @@ const deleteJob = asyncHandler(async(req,res)=>{
 const applyJob = asyncHandler(async(req,res)=>{
   
         const job = await Job.findById(req.params.id);
-        console.log("apply job session id",req.session.id);
+        console.log("apply job session id",req.session);
         if( req.session.user_id){
-        console.log("apply job session id inside if",req.session.id);
+        console.log("apply job session id inside if",req.session.user_id);
 
             const id =  new mongoose.Types.ObjectId(req.session.user_id);
             const user = await User.findById(new mongoose.Types.ObjectId(req.session.user_id));
