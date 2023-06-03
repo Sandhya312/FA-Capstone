@@ -23,8 +23,8 @@
         <form  @submit.prevent="register()">
            <div class="side">
             <div class=" side-side mb-3">
-      <label for="exampleInputEmail1" class="form-label">Name</label>
-      <input type="name" name="name" v-model="user.name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <label for="" class="form-label">Name</label>
+      <input type="name" name="name" v-model="user.name" class="form-control" id="name" aria-describedby="emailHelp">
     </div>
     <div class="side-side mb-3">
         <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -34,29 +34,29 @@
         <div class="side">
           <div class="side-side mb-3">
         <label for="phone" class="form-label">Phone No</label>
-        <input type="number" name="phone_no" v-model="user.phone_no" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <input type="number" name="phone_no" v-model="user.phone_no" class="form-control" id="phone" aria-describedby="emailHelp">
       </div>
     <div class="side-side mb-3">
       <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" name="password" v-model="user.password" class="form-control" id="exampleInputPassword1">
+      <input type="password" name="password" v-model="user.password" class="form-control" id="password">
     </div>
         </div>
       <div class="side">
           <div class="side-side mb-3">
       <label for="exampleInputEmail1" class="form-label">Address</label>
-      <input type="name" name="address" v-model="user.address" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="name" name="address" v-model="user.address" class="form-control" id="address" aria-describedby="emailHelp">
    
           </div>
           <div class="side-side mb-3">
       <label for="exampleInputEmail1" class="form-label">Skills</label>
-      <input type="name" name="mySkills" v-model="user.mySkills" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="name" name="mySkills" v-model="user.mySkills" class="form-control" id="skills" aria-describedby="emailHelp">
    
            </div>
       </div>
     <div class="side">
         <div class="side-side mb-3">
       <label for="exampleInputEmail1" class="form-label"> My_taglines</label>
-      <input type="name" name=" my_taglines" v-model="user.my_taglines" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="name" name=" my_taglines" v-model="user.my_taglines" class="form-control" id="tagline" aria-describedby="emailHelp">
    
         </div>
         <div class="side-side">
@@ -119,6 +119,7 @@ export default {
   methods:{
    async register(){
        try{
+        let user = this.user
         const response = await axios.post('https://fa-capstone.onrender.com/user/register',{
           user
         })
