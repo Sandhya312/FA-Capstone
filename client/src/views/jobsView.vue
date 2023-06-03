@@ -86,6 +86,7 @@ export default {
          },
          async applyJob(){
              try{
+                const id = this.$route.params.id;
                 const response = await axios.post(`https://fa-capstone.onrender.com/jobs/${id}/apply`,{
               
                 })
