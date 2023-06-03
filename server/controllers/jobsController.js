@@ -129,7 +129,7 @@ const applyJob = asyncHandler(async(req,res)=>{
             user.appliedJobs.push(job._id);
         }
         await user.save();
-        console.log("not applied");
+        console.log(" applied");
         sendAppliedNotification(user,job);
 
         if(!job.appliedUsers.includes(user._id)){
