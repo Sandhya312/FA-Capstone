@@ -91,6 +91,7 @@ const createPost = asyncHandler(async(req,res)=>{
          last_date,
          emp_id:id,
         })
+        console.log("backend created job",newPost);
         if(!user.postingJobs.includes(newPost._id)){
          user.postingJobs.push(newPost._id);
      }
