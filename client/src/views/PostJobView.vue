@@ -5,52 +5,52 @@
 <form  @submit.prevent="post_job()">
     <div class="mb-3">
       <label for="title" class="form-label">Title</label>
-      <input type="text" name="title" class="form-control" id="title" aria-describedby="emailHelp">
+      <input type="text" v-model="job.title" name="title" class="form-control" id="title" aria-describedby="emailHelp">
    
     </div>
     <div class="mb-3">
         <label for="company_name" class="form-label">Company_name</label>
-        <input type="text" name="company_name" class="form-control" id="company_name" aria-describedby="emailHelp">
+        <input type="text" v-model="job.company_name" name="company_name" class="form-control" id="company_name" aria-describedby="emailHelp">
       </div>
     <div class="mb-3">
         <label for="job_type" class="form-label"> job_type</label>
-        <input type="text" name="job_type" class="form-control" id="job_type" aria-describedby="emailHelp">
+        <input type="text" v-model="job.job_type" name="job_type" class="form-control" id="job_type" aria-describedby="emailHelp">
       </div>
       <div class="mb-3">
         <label for="openings" class="form-label">openings</label>
-        <input type="number" name="openings" class="form-control" id="openings" aria-describedby="emailHelp">
+        <input type="number" v-model="job.openings" name="openings" class="form-control" id="openings" aria-describedby="emailHelp">
       </div>
     <div class="mb-3">
       <label for="start_date" class="form-label">start_date</label>
-      <input type="text" name="start_date" class="form-control" id="start_date">
+      <input type="text" v-model="job.start_date" name="start_date" class="form-control" id="start_date">
     </div>
     <div class="mb-3">
         <label for="location" class="form-label">location</label>
-        <input type="text" name="location" class="form-control" id="location">
+        <input type="text" v-model="job.location" name="location" class="form-control" id="location">
       </div>
       <div class="mb-3">
         <label for="experience" class="form-label">experience</label>
-        <input type="text" name="exprience" class="form-control" id="experience">
+        <input type="text" v-model="job.experience" name="exprience" class="form-control" id="experience">
       </div>
       <div class="mb-3">
         <label for="salary" class="form-label">Salary</label>
-        <input type="text" name="salary" class="form-control" id="salary">
+        <input type="text" v-model="job.salary" name="salary" class="form-control" id="salary">
       </div>
       <div class="mb-3">
         <label for="probation_duration" class="form-label">probation_duration</label>
-        <input type="text" name="probation_duration" class="form-control" id="probation_duration">
+        <input type="text" v-model="job.probation_duration" name="probation_duration" class="form-control" id="probation_duration">
       </div>
       <div class="mb-3">
         <label for="mandatory_skills" class="form-label">mandatory_skills</label>
-        <input type="text" name="mandatory_skills" class="form-control" id="mandatory_skills">
+        <input type="text" v-model="job.mandatory_skills" name="mandatory_skills" class="form-control" id="mandatory_skills">
       </div>
       <div class="mb-3">
         <label for="about_job" class="form-label">about_job</label>
-        <input type="text" name="about_job" class="form-control" id="about_job">
+        <input type="text" v-model="job.about_job"  name="about_job" class="form-control" id="about_job">
       </div>
       <div class="mb-3">
         <label for="last_date" class="form-label">last_date</label>
-        <input type="text" name="last_date" class="form-control" id="last_date">
+        <input type="text" v-model="job.last_date" name="last_date" class="form-control" id="last_date">
       </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
