@@ -166,7 +166,7 @@ const UserLogin = asyncHandler(async (req, res) => {
         console.log("login successfully",req.session.user_id);
         res.send(user.id);
         // res.redirect('/user/'+user.id);
-        console.log("login failed");
+     
     }
     } else {
         res.status(400).send({message:"Email or password is incorrect"});

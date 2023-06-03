@@ -122,26 +122,43 @@ const applyJob = asyncHandler(async(req,res)=>{
   
         const job = await Job.findById(req.params.id);
         console.log("apply job session id",req.session);
-        if( req.session.user_id){
-        console.log("apply job session id inside if",req.session.user_id);
+        
+            console.log("apply job session id inside if",req.session.user_id);
+    
+                const id =  new mongoose.Types.ObjectId(req.session.user_id);
+                const user = await User.findById(new mongoose.Types.ObjectId(req.session.user_id));
+                if(!user.appliedJobs.includes(job._id)){
+                    user.appliedJobs.push(job._id);
+                }
+                await user.save();
+                sendAppliedNotification(user,job);
+    
+                if(!job.appliedUsers.includes(user._id)){
+                    await job.appliedUsers.push(user._id);
+                } await job.save();
+            //    res.status(200).redirect('/user/'+id)
+            res.status(200).send(id);
+           
+        // if( req.session.user_id){
+        // console.log("apply job session id inside if",req.session.user_id);
 
-            const id =  new mongoose.Types.ObjectId(req.session.user_id);
-            const user = await User.findById(new mongoose.Types.ObjectId(req.session.user_id));
-            if(!user.appliedJobs.includes(job._id)){
-                user.appliedJobs.push(job._id);
-            }
-            await user.save();
-            sendAppliedNotification(user,job);
+        //     const id =  new mongoose.Types.ObjectId(req.session.user_id);
+        //     const user = await User.findById(new mongoose.Types.ObjectId(req.session.user_id));
+        //     if(!user.appliedJobs.includes(job._id)){
+        //         user.appliedJobs.push(job._id);
+        //     }
+        //     await user.save();
+        //     sendAppliedNotification(user,job);
 
-            if(!job.appliedUsers.includes(user._id)){
-                await job.appliedUsers.push(user._id);
-            } await job.save();
-        //    res.status(200).redirect('/user/'+id)
-        res.status(200).send(id);
-        }else{
-            console.log("apply job session id not found");
-            res.status(500).json({ error: 'Failed to create job post.' });
-        }
+        //     if(!job.appliedUsers.includes(user._id)){
+        //         await job.appliedUsers.push(user._id);
+        //     } await job.save();
+        // //    res.status(200).redirect('/user/'+id)
+        // res.status(200).send(id);
+        // }else{
+        //     console.log("apply job session id not found");
+        //     res.status(500).json({ error: 'Failed to create job post.' });
+        // }
 })
 
 const jobAppliedUsers = asyncHandler(async(req,res)=>{
