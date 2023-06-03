@@ -38,7 +38,7 @@ const allUsers = asyncHandler(async(req,res)=>{
     res.status(202).send(users);
 })
 
-// registration form
+//load  registration form
 const loadRegister = asyncHandler(async(req,res)=>{
     const users = await User.find({});
     res.send(users);
@@ -62,7 +62,7 @@ const userProfile = asyncHandler(async (req, res) => {
     console.log("profile backend",req.params.id);
     const user = await User.findById(req.params.id);
     if(user){
-        console.log("user backend",user);
+     
         res.status(200).send(user);
 
     }else{
@@ -111,7 +111,6 @@ const userRegister = asyncHandler(async (req, res) => {
     
     if(!name || !email || !phone_no || !password || !req.body.is_emp ){
         res.status(400).send({message:"All fields are mandatory"});
-
     }
     const userAvailable = await User.findOne({email});
     if(userAvailable){

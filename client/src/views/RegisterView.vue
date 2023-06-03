@@ -20,7 +20,7 @@
           <h3>Create new account</h3>
           <router-link  to="/login">Login</router-link> 
         </div>
-        <form method="post" action="/user/register">
+        <form  @submit.prevent="register()">
            <div class="side">
             <div class=" side-side mb-3">
       <label for="exampleInputEmail1" class="form-label">Name</label>
@@ -97,6 +97,7 @@ if(typeof message !== 'undefined'){ %>
 </template>
 
 <script>
+import axios from  'axios';
 export default {
   name:'RegisterView',
   data(){
@@ -115,6 +116,19 @@ export default {
 
     }
   },
+  methods:{
+   async register(){
+       try{
+        const response = await axios.post('https://fa-capstone.onrender.com/user/register',{
+          user
+        })
+        console.log("register",response);
+       }
+       catch(err){
+        console.log(err);
+       }
+    }
+  }
 
 
 
