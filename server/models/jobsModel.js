@@ -8,7 +8,7 @@ const jobSchema = mongoose.Schema({
     openings:Number,
     start_date:String,
     location:String,
-    exprience:String,
+    experience:String,
     probation_duration:String,
     mandatory_skills:Array,
     about_job:String,
