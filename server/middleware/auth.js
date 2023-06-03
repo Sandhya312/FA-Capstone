@@ -19,6 +19,7 @@ const isLogin = async(req,res,next)=>{
 
 const isLogout = async(req,res,next)=>{
     try{
+        console.log(req.session.user_id,"session id islogout");
         if(req.session.user_id){
             res.redirect('/user/'+req.session.user_id)
         }
