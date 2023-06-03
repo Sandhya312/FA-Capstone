@@ -5,14 +5,14 @@ const {userProfile,appliedJobs,updateUserProfile,userRegister,editLoad,logout,ve
 const {isLogin,isLogout} = require("../middleware/auth");
 
 router.get('/',allUsers);
-router.get('/register',isLogout,loadRegister);
+router.get('/register',loadRegister);
 router.get('/verify',verifyMail);
-router.get('/login',isLogout,loadLogin);
-router.get('/logout',isLogin,logout);
-router.get('/edit',isLogin,editLoad);
-router.get('/:id/applied',isLogin,appliedJobs);
-router.get('/:id/myjobs',isLogin,myJobs);
-router.get('/:id',isLogin,userProfile);
+router.get('/login',loadLogin);
+router.get('/logout',logout);
+router.get('/edit',editLoad);
+router.get('/:id/applied',appliedJobs);
+router.get('/:id/myjobs',myJobs);
+router.get('/:id',userProfile);
 router.post('/register',userRegister);
 router.post('/login',UserLogin);
 router.patch('/:id/edit',updateUserProfile);
