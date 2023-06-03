@@ -122,19 +122,21 @@ const applyJob = asyncHandler(async(req,res)=>{
     const job = await Job.findById(req.params.id);
     console.log("apply job session id",req.session);
     if( user_id){
-    console.log("apply job session id inside if",user_id);
-
         const id =  new mongoose.Types.ObjectId(user_id);
         const user = await User.findById(new mongoose.Types.ObjectId(user_id));
         if(!user.appliedJobs.includes(job._id)){
+            console.log("not applied");
             user.appliedJobs.push(job._id);
         }
         await user.save();
+        console.log("not applied");
         sendAppliedNotification(user,job);
 
         if(!job.appliedUsers.includes(user._id)){
+            console.log("job not applied");
             await job.appliedUsers.push(user._id);
-        } await job.save();
+        } 
+        await job.save();
     //    res.status(200).redirect('/user/'+id)
     res.status(200).send(id);
     }else{
