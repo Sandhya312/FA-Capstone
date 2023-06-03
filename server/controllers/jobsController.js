@@ -73,36 +73,64 @@ const jobPage = asyncHandler(async(req,res)=>{
 
 // create job post
 const createPost = asyncHandler(async(req,res)=>{
-       const {title,company_name,salary,job_type,openings,start_date,location,exprience,probation_duration,mandatory_skills,about_job,last_date} = req.body;
-       if( req.session.user_id){
-        const id =  new mongoose.Types.ObjectId(req.session.user_id);
-        const user = await User.findById(new mongoose.Types.ObjectId(req.session.user_id));
-        const newPost = await Job.create({
-            title,
-            company_name,
-            job_type,
-            salary,
-            openings,
-            start_date,
-            location,
-            exprience,
-            probation_duration,
-            mandatory_skills,
-            about_job,
-            last_date,
-            emp_id:id,
-           })
-           if(!user.postingJobs.includes(newPost._id)){
-            user.postingJobs.push(newPost._id);
-        }
-        await user.save();
-        res.status(202).redirect('/');
+    const {user_id,title,company_name,salary,job_type,openings,start_date,location,exprience,probation_duration,mandatory_skills,about_job,last_date} = req.body;
+     const id =  new mongoose.Types.ObjectId(user_id);
+     const user = await User.findById(new mongoose.Types.ObjectId(user_id));
+     const newPost = await Job.create({
+         title,
+         company_name,
+         job_type,
+         salary,
+         openings,
+         start_date,
+         location,
+         exprience,
+         probation_duration,
+         mandatory_skills,
+         about_job,
+         last_date,
+         emp_id:id,
+        })
+        if(!user.postingJobs.includes(newPost._id)){
+         user.postingJobs.push(newPost._id);
+     }
+     await user.save();
+    //  res.status(202).redirect('/');
+    res.status(200).send("successfully posted");
 
-    }else{
-        res.status(500).send({ error: 'Failed to create job post.' });
 
-    }
 })
+// const createPost = asyncHandler(async(req,res)=>{
+//        const {title,company_name,salary,job_type,openings,start_date,location,exprience,probation_duration,mandatory_skills,about_job,last_date} = req.body;
+//        if( req.session.user_id){
+//         const id =  new mongoose.Types.ObjectId(req.session.user_id);
+//         const user = await User.findById(new mongoose.Types.ObjectId(req.session.user_id));
+//         const newPost = await Job.create({
+//             title,
+//             company_name,
+//             job_type,
+//             salary,
+//             openings,
+//             start_date,
+//             location,
+//             exprience,
+//             probation_duration,
+//             mandatory_skills,
+//             about_job,
+//             last_date,
+//             emp_id:id,
+//            })
+//            if(!user.postingJobs.includes(newPost._id)){
+//             user.postingJobs.push(newPost._id);
+//         }
+//         await user.save();
+//         res.status(202).redirect('/');
+
+//     }else{
+//         res.status(500).send({ error: 'Failed to create job post.' });
+
+//     }
+// })
 
 const updateJob = asyncHandler(async(req,res)=>{
         const updatedJOb = await Job.findByIdAndUpdate(
