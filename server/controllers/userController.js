@@ -107,6 +107,7 @@ const appliedJobs = asyncHandler(async (req, res) => {
 // user registration post method
 const userRegister = asyncHandler(async (req, res) => {
     const { name, email, phone_no, password,address,mySkills,my_taglines,resume } = req.body;
+    console.log("register",req.body);
     const is_emp = req.body.is_emp === 'employee';
     
     if(!name || !email || !phone_no || !password || !req.body.is_emp ){
