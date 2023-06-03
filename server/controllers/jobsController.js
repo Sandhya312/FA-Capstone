@@ -123,6 +123,8 @@ const applyJob = asyncHandler(async(req,res)=>{
         const job = await Job.findById(req.params.id);
         console.log("apply job session id",req.session.id);
         if( req.session.user_id){
+        console.log("apply job session id inside if",req.session.id);
+
             const id =  new mongoose.Types.ObjectId(req.session.user_id);
             const user = await User.findById(new mongoose.Types.ObjectId(req.session.user_id));
             if(!user.appliedJobs.includes(job._id)){
@@ -137,6 +139,7 @@ const applyJob = asyncHandler(async(req,res)=>{
         //    res.status(200).redirect('/user/'+id)
         res.status(200).send(id);
         }else{
+            console.log("apply job session id not found");
             res.status(500).json({ error: 'Failed to create job post.' });
         }
 })
