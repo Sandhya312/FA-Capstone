@@ -86,9 +86,10 @@ export default {
          },
          async applyJob(){
              try{
+                const user_id = localStorage.getItem('userId');
                 const id = this.$route.params.id;
                 const response = await axios.post(`https://fa-capstone.onrender.com/jobs/${id}/apply`,{
-                
+                user_id,
                 })
                 console.log(response);
                 this.$router.push({ path:`/user/${response.data}`});
