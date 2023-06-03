@@ -84,6 +84,11 @@
   </form>
        </div>
 
+       <div v-if="popup_msg!==''">
+        <div class="alert alert-info" role="alert">
+             {{ popup_msg }}
+</div>
+       </div>
 
     </div>
 
@@ -112,7 +117,8 @@ export default {
     mySkills:'',
     address:'',
     resume:'',
-  }
+  },
+  popup_msg:'',
 
     }
   },
@@ -130,7 +136,7 @@ export default {
     address:this.user.address,
     resume:this.user.resume,
         })
-        console.log("register",response.data);
+        this.popup_msg= response.data;
         this.$router.push({path:'/login'});
        }
        catch(err){
