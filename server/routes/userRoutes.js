@@ -12,7 +12,7 @@ router.get('/logout',isLogin,logout);
 router.get('/edit',isLogin,editLoad);
 router.get('/:id/applied',isLogin,appliedJobs);
 router.get('/:id/myjobs',isLogin,myJobs);
-router.get('/:id',userProfile);
+router.get('/:id',isLogin,userProfile);
 router.post('/register',userRegister);
 router.post('/login',UserLogin);
 router.patch('/:id/edit',updateUserProfile);
