@@ -55,9 +55,9 @@
                    <p class="frame-amount">{{ job.openings }}</p>
               </div>
            </div>
-           <form :action="`/jobs/${job._id}/apply`"  method="post">
+           <form >
         <!-- Form fields go here -->
-        <button class="submit-btn" type="submit"> <p>Apply</p> </button>
+        <button class="submit-btn" @click.prevent="applyJob()" type="submit"> <p>Apply</p> </button>
       </form>
         </div>
     </div>
@@ -83,6 +83,17 @@ export default {
            catch(err){
             console.log(err);
            }
+         },
+         async applyJob(){
+             try{
+                const response = await axios.post(`https://fa-capstone.onrender.com/jobs/${id}/apply`,{
+              
+                })
+                console.log(response);
+             }
+             catch(err){
+                console.log(err);
+             }
          }
     },
     created() {
