@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Users who applied for the job</h1>
+  <div class="applicants">
+    <h1>Applicants</h1>
 
     <div class="container d-flex justify-content-start">
       <table class="table">
@@ -59,12 +59,10 @@ export default {
 </script>
 
 <style scoped>
-.card {
-  background: transparent;
-  margin: 20px;
-  height: 26rem;
-  width: 30rem !important;
+.applicants{
+    padding: 2% !important;
 }
+
 h6 {
   margin-bottom: 20px !important;
 }

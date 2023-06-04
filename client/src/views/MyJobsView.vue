@@ -25,9 +25,7 @@
               </div>
            </div>
            <h4 class="job-desc-heading">Job Description</h4>
-           <p class="job-desc-para">1. Creating user-centered designs by understanding business requirements, and user feedback.
-                                    2. Developing and conceptualizing a comprehensive UI/UX design strategy.
-                                    3. Producing high-quality UX design solutions through wireframes, visual and graphi...</p>
+           <p class="job-desc-para"> {{ job.about_job }}</p>
 
            <form :action="`/jobs/${job._id}`" method="get">
           <button class="view-details" type="submit">  <p> View Details</p></button>
