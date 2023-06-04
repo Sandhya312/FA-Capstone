@@ -1,5 +1,6 @@
 <template>
     <div class="login-page">
+
       <div class="banner">
           <h1>Find your dream job!</h1>
           <h4>Trusted by 300000+ students</h4>
@@ -15,6 +16,9 @@
           </div>
       </div>
        <div class="login-form">
+        <div v-if="verify_mail!==''" class="verifyMail">
+          {{ verify_mail}}
+        </div>
         <div class="signin-option">
           <h3>Sign In</h3>
           <router-link to="/register">Create an account</router-link> 
@@ -49,7 +53,8 @@ export default {
          user:{
           email:'',
           password:'',
-         }
+         },
+         verify_mail:''
       }
     },
  methods: {
@@ -66,6 +71,7 @@ export default {
         
         }else{
           console.log(response.data[1]);
+          this.verify_mail=response.data[1];
           this.user.email='';
           this.user.password='';
         }
