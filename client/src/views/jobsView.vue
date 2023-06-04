@@ -91,7 +91,6 @@ export default {
                 const response = await axios.post(`https://fa-capstone.onrender.com/jobs/${id}/apply`,{
                 user_id,
                 })
-                console.log(response);
                 this.$router.push({ path:`/user/${response.data}`});
              }
              catch(err){

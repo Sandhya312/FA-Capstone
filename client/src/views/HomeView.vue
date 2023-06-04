@@ -35,7 +35,9 @@ export default {
 </script>
 
 <style scoped>
-
+.home{
+  padding: 2%;
+}
 .hero-section{
   position: relative;
 }

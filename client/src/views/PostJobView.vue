@@ -101,7 +101,7 @@ export default {
           about_job:this.job.about_job,
           last_date:this.job.last_date,
         })
-        console.log("postjob",response);
+      
         this.$router.push({ path:`/user/${user_id}`});
        }
        catch(err){

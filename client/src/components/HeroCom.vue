@@ -46,7 +46,7 @@ export default {
 }
 .left h1{
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 14rem;
+    font-size: 13rem;
     line-height: 180px;
 }
 .left hr{
