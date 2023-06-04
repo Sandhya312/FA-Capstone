@@ -30,7 +30,7 @@ Other technologies and tools used in this project include:
 - Bcrypt: A library for hashing and salting passwords.
 
 ## View Demo
-Check out the [live demo](https://fa-capstone-client.netlify.app/) of the FA-Capstone job portal.
+Check out the <a href="https://fa-capstone-client.netlify.app/" target="_blank">live demo</a> of the FA-Capstone job portal.
 
 ## Getting Started
 
