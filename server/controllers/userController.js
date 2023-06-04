@@ -157,7 +157,7 @@ const UserLogin = asyncHandler(async (req, res) => {
     const {email,password} = req.body;
     let message='';
 
-    if (await User.findOne({ email }) && (await bcrypt.compare(password,user.password))) {
+    if ((await User.findOne({ email })) && (await bcrypt.compare(password,user.password))) {
         const user = await User.findOne({ email });
         if(user.is_varified===0){
         sendVerifyMail(user.name,email,user.id);
