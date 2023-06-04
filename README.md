@@ -24,12 +24,13 @@ This project uses the MEVN (MongoDB, Express.js, Vue.js, Node.js) stack. Here's 
 
 Other technologies and tools used in this project include:
 
-- Vuex: A state management pattern and library for Vue.js.
 - Vue Router: A routing library for Vue.js.
 - Axios: A promise-based HTTP client for making API requests from the client-side.
 - Bootstrap: A popular CSS framework for building responsive and mobile-first websites.
-- JSON Web Tokens (JWT): Used for authentication and authorization.
 - Bcrypt: A library for hashing and salting passwords.
+
+## View Demo
+Check out the [live demo](https://fa-capstone-client.netlify.app/) of the FA-Capstone job portal.
 
 ## Getting Started
 
@@ -40,7 +41,7 @@ To get started with the FA-Capstone job portal project, follow these steps:
    ```shell
    git clone https://github.com/Sandhya312/FA-Capstone.git
 
-2. Clone the repository:
+2. Install dependencies for the server:
 
    ```shell
    cd server
