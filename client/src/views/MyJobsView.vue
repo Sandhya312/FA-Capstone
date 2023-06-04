@@ -25,7 +25,7 @@
             </div>
           </div>
           <h4 class="job-desc-heading">Job Description</h4>
-          <p class="job-desc-para">{{ job.about_job.substring(0, 100) }}..</p>
+          <p class="job-desc-para">{{ job.about_job.substring(0, 100) }}...</p>
 
           <form :action="`/jobs/${job._id}`" method="get">
             <button class="view-details" type="submit">
