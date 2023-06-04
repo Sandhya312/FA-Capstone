@@ -208,7 +208,6 @@ export default {
         );
        console.log(response.data);
         this.popup_msg = response.data;
-        // this.$router.push({ path: "/login" });
         this.user.name= "";
         this.user.email= "";
         this.user.phone_no= "";
