@@ -61,11 +61,11 @@ export default {
         });
         console.log(response.data);
         // localStorage.setItem('userId',response.data);
-        if(response!==''){
+        if(response.data!==''){
           this.$router.push({ path:`/user/${response.data[0]}`});
         }else{
           console.log(response.data);
-          this.$router.push({ path: "/login" });
+          this.$router.push({ path: "/" });
         }
        
       } catch (err) {
