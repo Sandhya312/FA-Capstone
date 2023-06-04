@@ -66,7 +66,7 @@ export default {
         
         }else{
           console.log(response.data[1]);
-          this.$router.push({ path: "/login" });
+          
         }
          
        
