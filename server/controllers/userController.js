@@ -107,7 +107,7 @@ const appliedJobs = asyncHandler(async (req, res) => {
 // user registration post method
 const userRegister = asyncHandler(async (req, res) => {
     const { name, email, phone_no, password,address,mySkills,my_taglines,resume } = req.body;
-    console.log("register",req.body);
+    
     const is_emp = req.body.is_emp === 'employee';
     
     if(!name || !email || !phone_no || !password || !req.body.is_emp ){
@@ -167,7 +167,6 @@ const UserLogin = asyncHandler(async (req, res) => {
         req.session.user_id = user.id;
         console.log("login successfully",req.session.user_id);
         res.send([user.id,message]);
-        // res.redirect('/user/'+user.id);
      
     }
     } else {
@@ -185,11 +184,8 @@ const myJobs = asyncHandler(async(req,res)=>{
       const job = await Job.findById(jobId);
       jobs.push(job);
     }
-
-   
     if(user.is_emp){ 
         res.send( { jobs }); 
-
     }else{
         res.status(200).send({user});
 
