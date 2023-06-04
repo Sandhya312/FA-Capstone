@@ -155,22 +155,24 @@ const verifyMail = asyncHandler(async(req,res)=>{
 // user login post
 const UserLogin = asyncHandler(async (req, res) => {
     const {email,password} = req.body;
+    let message='';
     const user = await User.findOne({ email });
     if (user && (await bcrypt.compare(password,user.password))) {
     if(user.is_varified===0){
         sendVerifyMail(user.name,email,user.id);
-        res.send({message:"Please verify your mail"});
-        console.log("login not verified");
+        message="Please verify your mail"
+        res.send([0,message]);
 
     }else{
         req.session.user_id = user.id;
         console.log("login successfully",req.session.user_id);
-        res.send(user.id);
+        res.send([user.id,message]);
         // res.redirect('/user/'+user.id);
      
     }
     } else {
-        res.status(400).send({message:"Email or password is incorrect"});
+        message="Email or password is incorrect";
+        res.status(400).send([0,message]);
 
     }
 });

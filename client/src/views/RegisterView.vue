@@ -206,6 +206,7 @@ export default {
             resume: this.user.resume,
           }
         );
+       
         this.popup_msg = response.data;
         this.$router.push({ path: "/login" });
       } catch (err) {
