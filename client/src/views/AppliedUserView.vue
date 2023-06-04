@@ -13,10 +13,40 @@
             <h6>user phone no:{{ user.phone_no }}</h6>
             <h6 v-for="skill in user.mySkills" :key="skill">user Skills:{{skill}}</h6>
             <h6><a :href="user.resume" target="_blank">{{ user.name }}.Resume</a></h6>
-          <!-- <form :action="`/user/${user._id}`" method="get">
-           
-            <button class="btn btn-primary" type="submit">View user</button>
-          </form> -->
+         
+            <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Resume</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="user in appliedUsers" :key="user._id">
+      <th scope="row">1</th>
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.phone_no }}</td>
+      <td><a :href="user.resume" target="_blank">{{ user.name }}.Resume</a></td>
+
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
        
           
      </div>

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="posted-jobs">
         <h1>Posted job page</h1>
         <div class="job-container ">
         <div class="job-card" v-for="job in postJobs" :key="job._id">
@@ -82,6 +82,10 @@ export default {
     margin: 0;
     padding: 0;
 
+}
+.posted-jobs{
+    height: auto;
+    padding: 2%;
 }
 .job-container{
     width: 100%;
