@@ -14,8 +14,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="user in appliedUsers" :key="user._id">
-            <td>0</td>
+          <tr v-for="user,i in appliedUsers" :key="user._id">
+        <td>{{ i+1 }}</td>
             <td>{{ user.name }}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.phone_no }}</td>
