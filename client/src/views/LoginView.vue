@@ -16,7 +16,8 @@
           </div>
       </div>
        <div class="login-form">
-        <div v-if="verify_mail!==''" class="verifyMail">
+       
+        <div  v-if="verify_mail!==''" class="verifyMail alert alert-danger" role="alert">
           {{ verify_mail}}
         </div>
         <div class="signin-option">
