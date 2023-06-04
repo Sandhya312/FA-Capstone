@@ -21,12 +21,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.set('trust proxy', 1) // trust first proxy
 app.use (session ({
-   
     secret:process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    
-   
+    host: 'localhost',
 }));
 
 

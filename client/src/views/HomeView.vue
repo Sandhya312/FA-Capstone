@@ -6,6 +6,7 @@
     <HeroCom/>
    </div>
    <AllJobsCom/>
+   <HireCom/>
 
   </div>
 </template>
@@ -14,6 +15,7 @@
 import HeroCom from '../components/HeroCom.vue';
 import BannerCom from '../components/BannerCom.vue';
 import AllJobsCom from '@/components/AllJobsCom.vue';
+import HireCom from '@/components/HireCom.vue';
 // @ is an alias to /src
 export default {
   name: 'HomeView',
@@ -21,6 +23,7 @@ export default {
     HeroCom,
     BannerCom,
     AllJobsCom,
+    HireCom
   },
   data(){
     return{
