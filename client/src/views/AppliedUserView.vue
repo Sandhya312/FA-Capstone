@@ -15,7 +15,7 @@
         </thead>
         <tbody>
           <tr v-for="user in appliedUsers" :key="user._id">
-            <th scope="row">{{ counter++ }}</th>
+            <td>{{ counter++ }}</td>
             <td>{{ user.name }}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.phone_no }}</td>
