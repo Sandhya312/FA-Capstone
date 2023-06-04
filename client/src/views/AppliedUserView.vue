@@ -15,7 +15,7 @@
         </thead>
         <tbody>
           <tr v-for="user in appliedUsers" :key="user._id">
-            <td>{{ counter++ }}</td>
+            <td>0</td>
             <td>{{ user.name }}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.phone_no }}</td>
@@ -36,7 +36,7 @@ export default {
   data() {
     return {
       appliedUsers: [],
-      counter:0,
+     
     };
   },
   methods: {
