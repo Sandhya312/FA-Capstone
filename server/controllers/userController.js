@@ -117,8 +117,8 @@ const userRegister = asyncHandler(async (req, res) => {
     if(userAvailable){
         message = "User is already registered";
         res.status(202).send(message);
-    }
-
+    }else{
+        
     // hashed password 
     const hashedPassword = await bcrypt.hash(password,10);
     const user = await User.create({
@@ -144,6 +144,8 @@ const userRegister = asyncHandler(async (req, res) => {
         res.status(400).send(message);
 
     }
+    }
+
 });
 const verifyMail = asyncHandler(async(req,res)=>{
    const updatedInfo = await User.updateOne({_id:req.query.id},{$set:{is_varified:1}});
