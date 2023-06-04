@@ -22,7 +22,7 @@
         <form @submit.prevent="register()">
           <div class="side">
             <div class="side-side mb-3">
-              <label for="" class="form-label">Name</label>
+              <label for="name" class="form-label">Name</label>
               <input
                 type="name"
                 name="name"
@@ -33,7 +33,7 @@
               />
             </div>
             <div class="side-side mb-3">
-              <label for="exampleInputEmail1" class="form-label"
+              <label for="email" class="form-label"
                 >Email address</label
               >
               <input
@@ -41,7 +41,7 @@
                 name="email"
                 v-model="user.email"
                 class="form-control"
-                id="exampleInputEmail1"
+                id="email"
                 aria-describedby="emailHelp"
               />
             </div>
@@ -73,7 +73,7 @@
           </div>
           <div class="side">
             <div class="side-side mb-3">
-              <label for="exampleInputEmail1" class="form-label">Address</label>
+              <label for="address" class="form-label">Address</label>
               <input
                 type="name"
                 name="address"
@@ -84,7 +84,7 @@
               />
             </div>
             <div class="side-side mb-3">
-              <label for="exampleInputEmail1" class="form-label">Skills</label>
+              <label for="skills" class="form-label">Skills</label>
               <input
                 type="name"
                 name="mySkills"
@@ -97,7 +97,7 @@
           </div>
           <div class="side">
             <div class="side-side mb-3">
-              <label for="exampleInputEmail1" class="form-label">
+              <label for="tagline" class="form-label">
                 My_taglines</label
               >
               <input
@@ -140,13 +140,13 @@
           </div>
           <div class="side">
             <div class="side-side mb-3">
-              <label for="exampleInputEmail1" class="form-label">Resume</label>
+              <label for="resume" class="form-label">Resume</label>
               <input
                 type="resume"
                 name="resume"
                 v-model="user.resume"
                 class="form-control"
-                id="exampleInputEmail1"
+                id="resume"
                 aria-describedby="emailHelp"
               />
             </div>
