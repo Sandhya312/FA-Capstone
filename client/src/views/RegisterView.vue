@@ -15,6 +15,10 @@
         </div>
       </div>
       <div class="register-form">
+         
+        <div  v-if=" popup_msg!==''" class=" popupMsg alert alert-danger" role="alert">
+          {{  popup_msg}}
+        </div>
         <div class="signin-option">
           <h3>Create new account</h3>
           <router-link to="/login">Login</router-link>
@@ -23,7 +27,7 @@
           <div class="side">
             <div class="side-side mb-3">
               <label for="name" class="form-label">Name</label>
-              <input
+              <input required
                 type="name"
                 name="name"
                 v-model="user.name"
@@ -36,7 +40,7 @@
               <label for="email" class="form-label"
                 >Email address</label
               >
-              <input
+              <input required
                 type="email"
                 name="email"
                 v-model="user.email"
@@ -49,7 +53,7 @@
           <div class="side">
             <div class="side-side mb-3">
               <label for="phone" class="form-label">Phone No</label>
-              <input
+              <input required
                 type="number"
                 name="phone_no"
                 v-model="user.phone_no"
@@ -62,7 +66,7 @@
               <label for="exampleInputPassword1" class="form-label"
                 >Password</label
               >
-              <input
+              <input required
                 type="password"
                 name="password"
                 v-model="user.password"
@@ -74,7 +78,7 @@
           <div class="side">
             <div class="side-side mb-3">
               <label for="address" class="form-label">Address</label>
-              <input
+              <input required
                 type="name"
                 name="address"
                 v-model="user.address"
@@ -85,7 +89,7 @@
             </div>
             <div class="side-side mb-3">
               <label for="skills" class="form-label">Skills</label>
-              <input
+              <input required
                 type="name"
                 name="mySkills"
                 v-model="user.mySkills"
@@ -100,7 +104,7 @@
               <label for="tagline" class="form-label">
                 My_taglines</label
               >
-              <input
+              <input required
                 type="name"
                 name=" my_taglines"
                 v-model="user.my_taglines"
@@ -155,11 +159,7 @@
         </form>
       </div>
 
-      <div v-if="popup_msg !== ''">
-        <div class="alert alert-info" role="alert">
-          {{ popup_msg }}
-        </div>
-      </div>
+      
     </div>
 
     <!-- <% 
@@ -208,7 +208,7 @@ export default {
         );
        console.log(response.data);
         this.popup_msg = response.data;
-        this.$router.push({ path: "/login" });
+        // this.$router.push({ path: "/login" });
       } catch (err) {
         console.log(err);
       }

@@ -107,21 +107,20 @@ const appliedJobs = asyncHandler(async (req, res) => {
 // user registration post method
 const userRegister = asyncHandler(async (req, res) => {
     const { name, email, phone_no, password,address,mySkills,my_taglines,resume } = req.body;
-    
     const is_emp = req.body.is_emp === 'employee';
-    
+    let message='';
     if(!name || !email || !phone_no || !password || !req.body.is_emp ){
-        res.status(400).send({message:"All fields are mandatory"});
+        message= "All fields are mandatory!"
+        res.status(400).send(message);
     }
     const userAvailable = await User.findOne({email});
     if(userAvailable){
-        res.status(202).send({message:"User already registered"});
+        message = "User is already registered";
+        res.status(202).send(message);
     }
 
     // hashed password 
     const hashedPassword = await bcrypt.hash(password,10);
-      if(is_emp){
-      }
     const user = await User.create({
         name,
         email,
@@ -136,12 +135,13 @@ const userRegister = asyncHandler(async (req, res) => {
     if(user){
         // nodemailer
         sendVerifyMail(req.body.name,req.body.email,user._id);
-        let message="Your registration has been successfully, Please verify your mail.";
+        message="Your registration has been successfully, Please verify your mail.";
         // res.status(202).render("register",{message:"Your registration has been successfully, Please verify your mail."});
         //  res.redirect('/user/login')
         res.send(message);
     }else{
-        res.status(400).send({message:"Your registration is failed"});
+         message = "Your registration is faild"
+        res.status(400).send(message);
 
     }
 });
