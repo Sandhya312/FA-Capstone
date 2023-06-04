@@ -66,7 +66,8 @@ export default {
         
         }else{
           console.log(response.data[1]);
-          
+          this.user.email='';
+          this.user.password='';
         }
          
        
