@@ -59,8 +59,9 @@ export default {
           email: this.user.email,
           password: this.user.password,
         });
-        console.log(response.data);
+        // console.log(response.data);
         // localStorage.setItem('userId',response.data);
+        
         this.$router.push({ path:`/user/${response.data[0]}`});
       } catch (err) {
         console.log(err);
