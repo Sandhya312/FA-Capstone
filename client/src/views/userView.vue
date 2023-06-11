@@ -281,7 +281,7 @@ export default {
          try{
           const id = this.$route.params.id;
        
-          const response = await axios.get(`/user/${id}`);
+          const response = await axios.get(`https://fa-capstone.onrender.com/user/${id}`);
         
           if(response.data==''){
               this.$router.push({path:'/login'});
