@@ -139,7 +139,7 @@ methods:{
  async post_job(){
      try{
       const user_id = localStorage.getItem('userId');
-      const response = await axios.post('/jobs/postjob',{
+      const response = await axios.post('https://fa-capstone.onrender.com/jobs/postjob',{
         user_id,
         title:this.job.title,
         company_name:this.job.company_name,
