@@ -79,10 +79,13 @@ const createPost = asyncHandler(async(req,res)=>{
     const year = date.getUTCFullYear().toString().slice(-2);
     const month = ("0" + (date.getUTCMonth() + 1)).slice(-2);
     const day = ("0" + date.getUTCDate()).slice(-2);
+    const new_start_date = `${year}-${month}-${day}`;
     
-    const formattedDateString = `${year}-${month}-${day}`;
-    
-    console.log(formattedDateString,"formatterdDAtestring"); // Output: 23-07-01
+    const date2 = new Date(last_date);
+    const year2 = date2.getUTCFullYear().toString().slice(-2);
+    const month2 = ("0" + (date2.getUTCMonth() + 1)).slice(-2);
+    const day2 = ("0" + date2.getUTCDate()).slice(-2);
+    const new_last_date = `${year2}-${month2}-${day2}`;
 
     const id =  new mongoose.Types.ObjectId(user_id);
      const user = await User.findById(new mongoose.Types.ObjectId(user_id));
@@ -92,13 +95,13 @@ const createPost = asyncHandler(async(req,res)=>{
          job_type,
          salary,
          openings,
-         start_date,
+         start_date:new_start_date,
          location,
          experience,
          probation_duration,
          mandatory_skills,
          about_job,
-         last_date,
+         last_date:new_last_date,
          emp_id:id,
         })
         console.log("backend created job",newPost);
