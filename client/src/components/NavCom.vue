@@ -86,7 +86,7 @@ export default {
     async getUser() {
       try {
         const id = this.isUser;
-        const response = await axios.get(`/user/${id}`);
+        const response = await axios.get(`https://fa-capstone.onrender.com/user/${id}`);
         this.user = response.data;
         console.log("navbar",this.user);
     

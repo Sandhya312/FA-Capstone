@@ -185,7 +185,7 @@
       async getUser() {
         try {
           const id = this.id
-          const response = await axios.get(`/user/${id}`);
+          const response = await axios.get(`https://fa-capstone.onrender.com/user/${id}`);
           this.user = response.data;
       
         } catch (err) {
@@ -196,7 +196,7 @@
         try{
           
           const id  = this.id
-          const res = await axios.patch(`/user/${id}/edit`,
+          const res = await axios.patch(`https://fa-capstone.onrender.com/user/${id}/edit`,
           this.user);
           console.log("this is response",res);
           console.log("this is user",this.user);
