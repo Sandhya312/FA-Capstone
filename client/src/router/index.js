@@ -11,6 +11,8 @@ import appliedJobsView from '../views/appliedJobsView.vue';
 import MyJobsView from '../views/MyJobsView.vue';
 // import EmailVerifyView from '../views/EmailVerifyView.vue';
 import AppliedUserView from '../views/AppliedUserView.vue';
+import AllJobsCom from '@/components/AllJobsCom.vue';
+import EditProfileView from '@/views/EditProfileView.vue';
 
 Vue.use(VueRouter)
 
@@ -29,6 +31,11 @@ const routes = [
     path: '/register',
     name: 'register',
     component: RegisterView
+  },
+  {
+    path: '/jobs',
+    name: 'jobs',
+    component: AllJobsCom
   },
   {
     path: '/postjob',
@@ -55,6 +62,11 @@ const routes = [
     path: '/user/:id/applied',
     name: 'appliedJobs',
     component: appliedJobsView
+  },
+  {
+    path: '/user/:id/edit',
+    name: 'edit',
+    component: EditProfileView
   },
   {
     path: '/user/:id/myjobs',

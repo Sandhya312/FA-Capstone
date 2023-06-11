@@ -23,14 +23,6 @@
                    <p class="frame-amount">{{ job.openings }}</p>
               </div>
            </div>
-
-           <div class="job-desc">
-              <h3>JOb Description</h3>
-            <div class="job-desc-details">
-              {{ job.about_job }}
-            </div>
-           </div>
-
            <div class="job-skills">
                <h3>Skill Required</h3>
                <div class="skill-badge" v-for="skill in job.mandatory_skills" :key="skill">
@@ -55,6 +47,12 @@
                    <p class="frame-amount">{{ job.openings }}</p>
               </div>
            </div>
+           <div class="job-desc">
+              <h3>Job Description</h3>
+            <div class="job-desc-details">
+              <p> {{ job.about_job }}</p>
+            </div>
+           </div>
            <form >
         <!-- Form fields go here -->
         <button class="submit-btn" @click.prevent="applyJob()" type="submit"> <p>Apply</p> </button>
@@ -76,7 +74,7 @@ export default {
          async getJob(){
            try{
             const id = this.$route.params.id;
-            const response = await axios.get(`https://fa-capstone.onrender.com/jobs/${id}`)
+            const response = await axios.get(`/jobs/${id}`)
             this.job = response.data;
            
            }
@@ -88,7 +86,7 @@ export default {
              try{
                 const user_id = localStorage.getItem('userId');
                 const id = this.$route.params.id;
-                const response = await axios.post(`https://fa-capstone.onrender.com/jobs/${id}/apply`,{
+                const response = await axios.post(`/jobs/${id}/apply`,{
                 user_id,
                 })
                 this.$router.push({ path:`/user/${response.data}`});
