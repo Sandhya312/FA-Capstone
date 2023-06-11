@@ -89,10 +89,10 @@ export default {
         this.job = response.data;
         const s_date = this.job.start_date;
         const date = new Date(s_date);
-        const year = date.getUTCFullYear().toString().slice(-2);
+        const year = date.getUTCFullYear().toString();
         const month = ("0" + (date.getUTCMonth() + 1)).slice(-2);
         const day = ("0" + date.getUTCDate()).slice(-2);
-        const new_start_date = `${year}-${month}-${day}`;
+        const new_start_date = `${day}-${month}-${year}`;
         this.start_date = new_start_date;
         console.log(this.start_date);
       } catch (err) {
