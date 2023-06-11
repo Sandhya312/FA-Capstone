@@ -52,7 +52,7 @@
         </div>
         <div class="frame duration-frame">
           <p class="frame-heading">Start Date</p>
-          <p class="frame-amount">{{ job.start_date }}</p>
+          <p class="frame-amount">{{ start_date }}</p>
         </div>
         <div class="frame apply-frame">
           <p class="frame-heading">Openings</p>
