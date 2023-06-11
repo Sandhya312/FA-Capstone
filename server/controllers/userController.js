@@ -59,12 +59,9 @@ const logout = asyncHandler(async(req,res)=>{
 
 // each user profile
 const userProfile = asyncHandler(async (req, res) => {
-    console.log("profile backend",req.params.id);
     const user = await User.findById(req.params.id);
     if(user){
-     
         res.status(200).send(user);
-
     }else{
         console.log("user not found");
         
@@ -75,10 +72,8 @@ const userProfile = asyncHandler(async (req, res) => {
 const editLoad = asyncHandler(async(req,res)=>{
        const  id = req.query.id;
        const user = await User.findById({_id:id});
-       
        if(user){ 
             res.send(user);
-
        }else{
         res.redirect('/user/login');
        }
@@ -201,12 +196,16 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     if(!user){
         res.status(404).send("user is not exists");
     }
+    console.log(req.body,"this is patch");
+    let data={};
+    data = req.body;
     const updatedUser=await User.findByIdAndUpdate(
         req.params.id,
         req.body,
         {new:true},
     )
-    res.status(200).send(updatedUser);
+    console.log(updatedUser,"updated user");
+    // res.status(200).send(updatedUser);
 
  })
 

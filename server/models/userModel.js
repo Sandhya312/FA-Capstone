@@ -11,15 +11,14 @@ const userSchema = mongoose.Schema({
         ref: 'Job',
     }],
     resume: String,
-    social_icon:{
-        type:Array,
-    },
+    bio:String,
+    company:String,
+    pronoun:String,
+    gender:String,
     mySkills:{
         type:Array,
     },
-    my_taglines:{
-        type:Array,
-    },
+    my_taglines:String,
     is_varified:{
         type:Number,
         default:0,
