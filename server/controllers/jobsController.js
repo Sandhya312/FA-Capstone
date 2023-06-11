@@ -74,19 +74,7 @@ const jobPage = asyncHandler(async(req,res)=>{
 // create job post
 const createPost = asyncHandler(async(req,res)=>{
     const {user_id,title,company_name,salary,job_type,openings,start_date,location,experience,probation_duration,mandatory_skills,about_job,last_date} = req.body;
- 
-    const date = new Date(start_date);
-    const year = date.getUTCFullYear().toString().slice(-2);
-    const month = ("0" + (date.getUTCMonth() + 1)).slice(-2);
-    const day = ("0" + date.getUTCDate()).slice(-2);
-    const new_start_date = `${year}-${month}-${day}`;
-    
-    const date2 = new Date(last_date);
-    const year2 = date2.getUTCFullYear().toString().slice(-2);
-    const month2 = ("0" + (date2.getUTCMonth() + 1)).slice(-2);
-    const day2 = ("0" + date2.getUTCDate()).slice(-2);
-    const new_last_date = `${year2}-${month2}-${day2}`;
-
+    console.log("backend created job req.body",req.body);
     const id =  new mongoose.Types.ObjectId(user_id);
      const user = await User.findById(new mongoose.Types.ObjectId(user_id));
      const newPost = await Job.create({
@@ -95,13 +83,13 @@ const createPost = asyncHandler(async(req,res)=>{
          job_type,
          salary,
          openings,
-         start_date:new_start_date,
+         start_date,
          location,
          experience,
          probation_duration,
          mandatory_skills,
          about_job,
-         last_date:new_last_date,
+         last_date,
          emp_id:id,
         })
         console.log("backend created job",newPost);
